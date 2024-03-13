@@ -10,11 +10,14 @@ import androidx.room.Room;
 
 import com.example.sitoapplication.R;
 import com.example.sitoapplication.database.CampaignDatabase;
+import com.example.sitoapplication.database.dao.CampaignDao;
 import com.example.sitoapplication.model.Campaign;
-import com.example.sitoapplication.model.CampaignModel;
+
+import java.util.List;
 
 public class CreateCampaignActivity extends AppCompatActivity {
     CampaignDatabase campaignDatabase;
+    CampaignDao campaignDao;
     TextView txtName;
     TextView txtTarget;
     TextView txtDeadline;
@@ -37,11 +40,19 @@ public class CreateCampaignActivity extends AppCompatActivity {
         campaignDatabase = Room.databaseBuilder(this, CampaignDatabase.class, "sitoApplication")
                 .allowMainThreadQueries()
                 .build();
+        campaignDao = campaignDatabase.getCampaignDao();
+
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CampaignModel campaign = new CampaignModel();
-                campaign.
+                Campaign campaign = new Campaign();
+                campaign.setName(txtName.getText().toString());
+                campaign.setTarget(Long.parseLong(txtTarget.getText().toString()));
+                campaign.setName(txtName.getText().toString());
+                campaign.setName(txtName.getText().toString());
+                campaign.setName(txtName.getText().toString());
+
+                campaignDao.insert(List.of(campaign));
             }
         });
     }

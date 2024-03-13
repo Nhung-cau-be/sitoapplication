@@ -6,16 +6,10 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
-@Data
 public class Campaign {
-    @PrimaryKey
-    @ColumnInfo
-    private String id;
+    @PrimaryKey(autoGenerate = true)
+    public long id;
     @ColumnInfo
     private String name;
     @ColumnInfo
@@ -26,4 +20,52 @@ public class Campaign {
     private String address;
     @ColumnInfo
     private String story;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getTarget() {
+        return target;
+    }
+
+    public void setTarget(Long target) {
+        this.target = target;
+    }
+
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getStory() {
+        return story;
+    }
+
+    public void setStory(String story) {
+        this.story = story;
+    }
 }

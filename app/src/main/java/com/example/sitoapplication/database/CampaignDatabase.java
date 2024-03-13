@@ -8,5 +8,5 @@ import com.example.sitoapplication.model.Campaign;
 
 @Database(entities = {Campaign.class}, version = 1)
 public abstract class CampaignDatabase extends RoomDatabase {
-    public abstract CampaignDao campaignDao();
+    public abstract CampaignDao getCampaignDao();
 }
