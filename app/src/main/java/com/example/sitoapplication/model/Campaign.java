@@ -6,16 +6,17 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity
+@Entity(tableName = "campaign")
 public class Campaign {
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo()
     public long id;
     @ColumnInfo
     private String name;
     @ColumnInfo
     private Long target;
     @ColumnInfo
-    private Date deadline;
+    private Long deadline;
     @ColumnInfo
     private String address;
     @ColumnInfo
@@ -45,11 +46,11 @@ public class Campaign {
         this.target = target;
     }
 
-    public Date getDeadline() {
+    public Long getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(Long deadline) {
         this.deadline = deadline;
     }
 

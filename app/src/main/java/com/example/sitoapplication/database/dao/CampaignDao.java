@@ -2,6 +2,7 @@ package com.example.sitoapplication.database.dao;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.sitoapplication.model.Campaign;
@@ -16,6 +17,6 @@ public interface CampaignDao {
     @Query("SELECT * FROM Campaign c WHERE c.id = :id")
     Campaign getById(String id);
 
-    @Insert
-    boolean insert(List<Campaign> campaigns);
+    @Insert (onConflict = OnConflictStrategy.IGNORE)
+    void insert(Campaign campaign);
 }
