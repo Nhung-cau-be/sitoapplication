@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.sitoapplication.controller.CreateCampaignActivity;
-import com.example.sitoapplication.database.CampaignDatabase;
-import com.example.sitoapplication.database.dao.CampaignDao;
 
 public class MainActivity extends AppCompatActivity {
 

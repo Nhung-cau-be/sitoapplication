@@ -1,4 +1,4 @@
-package com.example.sitoapplication.database;
+package com.example.sitoapplication.repository.database;
 
 import android.content.Context;
 
@@ -6,8 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.sitoapplication.database.dao.CampaignDao;
-import com.example.sitoapplication.model.Campaign;
+import com.example.sitoapplication.repository.database.dao.CampaignDao;
+import com.example.sitoapplication.entity.Campaign;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -18,7 +18,7 @@ public abstract class CampaignDatabase extends RoomDatabase {
 
     private static volatile CampaignDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor =
+    public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
     public static CampaignDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {

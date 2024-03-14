@@ -1,10 +1,8 @@
-package com.example.sitoapplication.model;
+package com.example.sitoapplication.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
-import java.util.Date;
 
 @Entity(tableName = "campaign")
 public class Campaign {
