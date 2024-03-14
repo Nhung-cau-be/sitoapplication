@@ -1,5 +1,6 @@
 package com.example.sitoapplication.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,6 +55,9 @@ public class CreateCampaignActivity extends AppCompatActivity {
                 campaign.setTarget(Long.parseLong(txtTarget.getText().toString()));
 
                 campaignViewModel.insert(campaign);
+
+                Intent intent = new Intent(CreateCampaignActivity.this, ListCampaignActivity.class);
+                startActivity(intent);
             }
         });
     }
