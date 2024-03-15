@@ -106,7 +106,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/alarm_24px"
+                        app:srcCompat="@drawable/ic_alarm_24px"
                         app:tint="#2196F3" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
