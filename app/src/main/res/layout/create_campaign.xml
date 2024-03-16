@@ -114,4 +114,22 @@
         android:text="Tạo"
         app:layout_constraintTop_toBottomOf="@+id/editTextStory"
         tools:layout_editor_absoluteX="220dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tân phan label"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCreate"
+        app:endIconMode="clear_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textFieldd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:keyboardNavigationCluster="true"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

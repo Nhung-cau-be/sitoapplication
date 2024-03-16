@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import com.example.sitoapplication.model.CampaignViewModel;
 import com.example.sitoapplication.entity.Campaign;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.SimpleDateFormat;
 
@@ -27,6 +30,7 @@ public class CreateCampaignActivity extends AppCompatActivity {
     TextView txtStory;
     Button btnCreate;
     MaterialDatePicker<Long> datePicker;
+    TextInputEditText test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,7 @@ public class CreateCampaignActivity extends AppCompatActivity {
         txtAddress = findViewById(R.id.editTextAddress);
         txtStory = findViewById(R.id.editTextStory);
         btnCreate = findViewById(R.id.buttonCreate);
+        test = findViewById(R.id.textFieldd);
 
         campaignViewModel.getAll().observe(this, words -> {
             // Update the cached copy of the words in the adapter.
@@ -53,6 +58,15 @@ public class CreateCampaignActivity extends AppCompatActivity {
                 campaignViewModel.getAll().getValue().forEach(campaign1 -> Log.v("sdasdsadsadas", campaign1.getName()));
             else
                 Log.v("Áddddd", "Khong co");
+        });
+
+        test.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                Log.e("12321321312", "123123213123");
+                datePicker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
+
+            }
         });
 
         txtDeadline.setOnFocusChangeListener(new View.OnFocusChangeListener() {
