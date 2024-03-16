@@ -12,9 +12,11 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sitoapplication.R;
 import com.example.sitoapplication.model.CampaignViewModel;
-import com.example.sitoapplication.repository.database.CampaignDatabase;
-import com.example.sitoapplication.repository.database.dao.CampaignDao;
 import com.example.sitoapplication.entity.Campaign;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+
+import java.text.SimpleDateFormat;
 
 public class CreateCampaignActivity extends AppCompatActivity {
     private CampaignViewModel campaignViewModel;
@@ -24,11 +26,17 @@ public class CreateCampaignActivity extends AppCompatActivity {
     TextView txtAddress;
     TextView txtStory;
     Button btnCreate;
+    MaterialDatePicker<Long> datePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_campaign);
+
+        datePicker =
+                MaterialDatePicker.Builder.datePicker()
+                        .setTitleText("Select date")
+                        .build();
 
         campaignViewModel = new ViewModelProvider(this).get(CampaignViewModel.class);
 
@@ -45,6 +53,21 @@ public class CreateCampaignActivity extends AppCompatActivity {
                 campaignViewModel.getAll().getValue().forEach(campaign1 -> Log.v("sdasdsadsadas", campaign1.getName()));
             else
                 Log.v("Áddddd", "Khong co");
+        });
+
+        txtDeadline.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    datePicker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
+                }
+            }
+        });
+        datePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
+            @Override
+            public void onPositiveButtonClick(Long selection) {
+                txtDeadline.setText(new SimpleDateFormat("dd/MM/yyyy").format(selection));
+            }
         });
 
         btnCreate.setOnClickListener(new View.OnClickListener() {
