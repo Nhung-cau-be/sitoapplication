@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sitoapplication.R;
 import com.example.sitoapplication.model.CampaignViewModel;
-import com.example.sitoapplication.repository.database.CampaignDatabase;
+import com.example.sitoapplication.repository.database.AppDatabase;
 import com.example.sitoapplication.repository.database.dao.CampaignDao;
 import com.example.sitoapplication.entity.Campaign;
 
