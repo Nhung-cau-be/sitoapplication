@@ -4,9 +4,9 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.sitoapplication.repository.database.AppDatabase;
-import com.example.sitoapplication.repository.database.dao.CampaignDao;
-import com.example.sitoapplication.entity.Campaign;
+import com.example.sitoapplication.database.AppDatabase;
+import com.example.sitoapplication.database.dao.CampaignDao;
+import com.example.sitoapplication.database.entity.Campaign;
 
 import java.util.List;
 

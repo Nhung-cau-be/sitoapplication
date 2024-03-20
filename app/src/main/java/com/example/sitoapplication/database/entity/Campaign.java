@@ -1,4 +1,4 @@
-package com.example.sitoapplication.entity;
+package com.example.sitoapplication.database.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "363687750846",
+    "project_id": "sito-application",
+    "storage_bucket": "sito-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363687750846:android:b3307f570cfb3e558b82ef",
+        "android_client_info": {
+          "package_name": "com.example.sitoapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363687750846-lv0a3ron72a69b5nq5nb5sed6p7ihogj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNmntjMhlN9onqw-3_7vwvZDqKQhs9nBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363687750846-lv0a3ron72a69b5nq5nb5sed6p7ihogj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

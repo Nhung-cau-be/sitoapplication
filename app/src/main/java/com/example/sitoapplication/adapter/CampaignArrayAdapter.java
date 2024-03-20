@@ -1,4 +1,4 @@
-package com.example.sitoapplication.controller.adapter;
+package com.example.sitoapplication.adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.sitoapplication.R;
-import com.example.sitoapplication.entity.Campaign;
+import com.example.sitoapplication.database.entity.Campaign;
 
 import java.util.ArrayList;
 import java.util.List;

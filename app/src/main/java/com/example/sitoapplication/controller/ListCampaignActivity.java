@@ -2,15 +2,13 @@ package com.example.sitoapplication.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sitoapplication.R;
-import com.example.sitoapplication.controller.adapter.CampaignArrayAdapter;
+import com.example.sitoapplication.adapter.CampaignArrayAdapter;
 import com.example.sitoapplication.model.CampaignViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 
