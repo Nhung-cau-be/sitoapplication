@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.sitoapplication.entity.Campaign;
+import com.example.sitoapplication.database.entity.Campaign;
 import com.example.sitoapplication.repository.CampaignRepository;
 
 import java.util.List;

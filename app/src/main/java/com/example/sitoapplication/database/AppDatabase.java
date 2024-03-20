@@ -1,4 +1,4 @@
-package com.example.sitoapplication.repository.database;
+package com.example.sitoapplication.database;
 
 import android.content.Context;
 
@@ -6,8 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.sitoapplication.repository.database.dao.CampaignDao;
-import com.example.sitoapplication.entity.Campaign;
+import com.example.sitoapplication.database.dao.CampaignDao;
+import com.example.sitoapplication.database.entity.Campaign;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

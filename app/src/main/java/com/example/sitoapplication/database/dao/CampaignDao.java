@@ -1,4 +1,4 @@
-package com.example.sitoapplication.repository.database.dao;
+package com.example.sitoapplication.database.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.sitoapplication.entity.Campaign;
+import com.example.sitoapplication.database.entity.Campaign;
 
 import java.util.List;
 
