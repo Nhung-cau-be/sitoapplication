@@ -4,9 +4,9 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.sitoapplication.repository.database.CampaignDatabase;
-import com.example.sitoapplication.repository.database.dao.CampaignDao;
-import com.example.sitoapplication.entity.Campaign;
+import com.example.sitoapplication.database.AppDatabase;
+import com.example.sitoapplication.database.dao.CampaignDao;
+import com.example.sitoapplication.database.entity.Campaign;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class CampaignRepository {
     private LiveData<List<Campaign>> mAllCampaigns;
 
     public CampaignRepository(Application application) {
-        CampaignDatabase db = CampaignDatabase.getDatabase(application);
+        AppDatabase db = AppDatabase.getDatabase(application);
         mCampaignDao = db.campaignDao();
         mAllCampaigns = mCampaignDao.getAll();
     }
@@ -30,7 +30,7 @@ public class CampaignRepository {
 
 
     public void insert(Campaign campaign) {
-        CampaignDatabase.databaseWriteExecutor.execute(() -> {
+        AppDatabase.databaseWriteExecutor.execute(() -> {
             mCampaignDao.insert(campaign);
         });
     }

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.example.sitoapplication.controller.CampaignDetailActivity;
 import com.example.sitoapplication.controller.CreateCampaignActivity;
 import com.example.sitoapplication.controller.ListCampaignActivity;
+import com.example.sitoapplication.controller.SignInActivity;
 
 public class MainActivity extends AppCompatActivity {
 
