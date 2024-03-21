@@ -75,36 +75,33 @@ public class CreateCampaignActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    String dateString = txtDeadline.getText().toString();
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    Date date = sdf.parse(dateString);
-                    endDate = date.getTime();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                if (txtName.getText().toString().isEmpty()) {
-                    txtName.setError("Vui lòng nhập tên chiến dịch");
-                    txtName.requestFocus();
-                }else if (txtTarget.getText().toString().isEmpty()) {
-                    txtTarget.setError("Vui lòng nhập mục tiêu chiến dịch");
-                    txtTarget.requestFocus();
-                } else if (txtAddress.getText().toString().isEmpty()) {
-                    txtAddress.setError("Vui lòng nhập địa chị");
-                    txtAddress.requestFocus();
-                } else if (txtStory.getText().toString().isEmpty()) {
-                    txtStory.setError("Vui lòng nhập tiểu sử");
-                    txtStory.requestFocus();
-                } else {
-                    Campaign campaign = new Campaign();
-                    campaign.setName(txtName.getText().toString());
-                    campaign.setTarget(Long.parseLong(txtTarget.getText().toString()));
-                    campaign.setDeadline(endDate);
-                    campaign.setAddress(txtAddress.getText().toString());
-                    campaign.setStory(txtStory.getText().toString());
 
-                    campaignViewModel.insert(campaign);
-                    Intent intent = new Intent(CreateCampaignActivity.this, ListCampaignActivity.class);
-                    startActivity(intent);
+                    if (txtName.getText().toString().isEmpty()) {
+                        txtName.setError("Vui lòng nhập tên chiến dịch");
+                        txtName.requestFocus();
+                    }else if (txtTarget.getText().toString().isEmpty()) {
+                        txtTarget.setError("Vui lòng nhập mục tiêu chiến dịch");
+                        txtTarget.requestFocus();
+                    } else if (txtAddress.getText().toString().isEmpty()) {
+                        txtAddress.setError("Vui lòng nhập địa chị");
+                        txtAddress.requestFocus();
+                    } else if (txtStory.getText().toString().isEmpty()) {
+                        txtStory.setError("Vui lòng nhập tiểu sử");
+                        txtStory.requestFocus();
+                    } else {
+                        Campaign campaign = new Campaign();
+                        campaign.setName(txtName.getText().toString());
+                        campaign.setTarget(Long.parseLong(txtTarget.getText().toString()));
+                        campaign.setDeadline(new SimpleDateFormat("dd/MM/yyyy").parse(txtDeadline.getText().toString()));
+                        campaign.setAddress(txtAddress.getText().toString());
+                        campaign.setStory(txtStory.getText().toString());
+
+                        campaignViewModel.insert(campaign);
+                        Intent intent = new Intent(CreateCampaignActivity.this, ListCampaignActivity.class);
+                        startActivity(intent);
+                    }
+                } catch (Exception ex) {
+                    Log.e("CreateCampaignActivity", ex.getMessage());
                 }
             }
         });

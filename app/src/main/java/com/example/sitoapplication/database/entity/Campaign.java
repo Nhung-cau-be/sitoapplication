@@ -3,8 +3,15 @@ package com.example.sitoapplication.database.entity;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
+
+import com.example.sitoapplication.database.converter.DateConverter;
+
+import java.util.Date;
 
 @Entity(tableName = "campaign")
+@TypeConverters(DateConverter.class)
 public class Campaign {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo()
@@ -14,7 +21,7 @@ public class Campaign {
     @ColumnInfo
     private Long target;
     @ColumnInfo
-    private Long deadline;
+    private Date deadline;
     @ColumnInfo
     private String address;
     @ColumnInfo
@@ -44,11 +51,11 @@ public class Campaign {
         this.target = target;
     }
 
-    public Long getDeadline() {
+    public Date getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Long deadline) {
+    public void setDeadline(Date deadline) {
         this.deadline = deadline;
     }
 

@@ -14,7 +14,12 @@ import androidx.annotation.Nullable;
 import com.example.sitoapplication.R;
 import com.example.sitoapplication.database.entity.Campaign;
 
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CampaignArrayAdapter extends ArrayAdapter<Campaign> {
@@ -40,6 +45,7 @@ public class CampaignArrayAdapter extends ArrayAdapter<Campaign> {
             viewHolder = new ViewHolder();
             viewHolder.imgChienDich = convertView.findViewById(R.id.imgChienDich);
             viewHolder.txtnameChienDich = convertView.findViewById(R.id.txtnameChienDich);
+            viewHolder.txtRemainDays = convertView.findViewById(R.id.txtRemainDays);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -48,6 +54,10 @@ public class CampaignArrayAdapter extends ArrayAdapter<Campaign> {
         Campaign campaign = mylist.get(position);
         viewHolder.imgChienDich.setImageResource(R.drawable.ic_launcher_foreground);
         viewHolder.txtnameChienDich.setText(campaign.getName());
+
+        LocalDateTime deadlineLocalDate = campaign.getDeadline().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        LocalDateTime todayLocalDate =  new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        viewHolder.txtRemainDays.setText("Còn " + Duration.between(deadlineLocalDate, todayLocalDate).toDays() + " ngày");
 
         return convertView;
     }
@@ -60,5 +70,6 @@ public class CampaignArrayAdapter extends ArrayAdapter<Campaign> {
     static class ViewHolder {
         ImageView imgChienDich;
         TextView txtnameChienDich;
+        TextView txtRemainDays;
     }
 }
