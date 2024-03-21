@@ -39,12 +39,6 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signIn();
-//                Account account = new Account(txtEmail.getText().toString().trim(),txtPassword.getText().toString().trim());
-//
-//                if(account.loginSuccess()) {
-//                    Intent intent = new Intent(SignInActivity.this, ListCampaignActivity.class);
-//                    startActivity(intent);
-//                }
             }
         });
 
