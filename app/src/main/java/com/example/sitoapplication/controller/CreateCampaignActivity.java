@@ -63,8 +63,9 @@ public class CreateCampaignActivity extends AppCompatActivity {
         });
 
         txtDeadline.setOnFocusChangeListener((v, hasFocus) -> {
-            Log.e("12321321312", "123123213123");
-            datePicker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
+            if(hasFocus) {
+                datePicker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
+            }
         });
         datePicker.addOnPositiveButtonClickListener(selection -> txtDeadline.setText(new SimpleDateFormat("dd/MM/yyyy").format(selection)));
 
