@@ -1,10 +1,12 @@
 package com.example.sitoapplication.controller;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,20 +15,35 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.sitoapplication.R;
 import com.example.sitoapplication.model.CampaignViewModel;
 import com.example.sitoapplication.database.entity.Campaign;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Objects;
 
 public class CreateCampaignActivity extends AppCompatActivity {
     private CampaignViewModel campaignViewModel;
     TextView txtName;
     TextView txtTarget;
-    TextView txtDeadline;
+    TextInputEditText txtDeadline;
     TextView txtAddress;
     TextView txtStory;
     Button btnCreate;
+    MaterialDatePicker<Long> datePicker;
+    long endDate = 0;
 
+    @SuppressLint("SimpleDateFormat")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_campaign);
+
+        datePicker =
+                MaterialDatePicker.Builder.datePicker()
+                        .setTitleText("Select date")
+                        .build();
 
         campaignViewModel = new ViewModelProvider(this).get(CampaignViewModel.class);
 
@@ -45,17 +62,50 @@ public class CreateCampaignActivity extends AppCompatActivity {
                 Log.v("Áddddd", "Khong co");
         });
 
+        txtDeadline.setOnFocusChangeListener((v, hasFocus) -> {
+            Log.e("12321321312", "123123213123");
+            datePicker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
+        });
+        datePicker.addOnPositiveButtonClickListener(selection -> txtDeadline.setText(new SimpleDateFormat("dd/MM/yyyy").format(selection)));
+
+
+
         btnCreate.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Campaign campaign = new Campaign();
-                campaign.setName(txtName.getText().toString());
-                campaign.setTarget(Long.parseLong(txtTarget.getText().toString()));
+                try {
+                    String dateString = txtDeadline.getText().toString();
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    Date date = sdf.parse(dateString);
+                    endDate = date.getTime();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                if (txtName.getText().toString().isEmpty()) {
+                    txtName.setError("Vui lòng nhập tên chiến dịch");
+                    txtName.requestFocus();
+                }else if (txtTarget.getText().toString().isEmpty()) {
+                    txtTarget.setError("Vui lòng nhập mục tiêu chiến dịch");
+                    txtTarget.requestFocus();
+                } else if (txtAddress.getText().toString().isEmpty()) {
+                    txtAddress.setError("Vui lòng nhập địa chị");
+                    txtAddress.requestFocus();
+                } else if (txtStory.getText().toString().isEmpty()) {
+                    txtStory.setError("Vui lòng nhập tiểu sử");
+                    txtStory.requestFocus();
+                } else {
+                    Campaign campaign = new Campaign();
+                    campaign.setName(txtName.getText().toString());
+                    campaign.setTarget(Long.parseLong(txtTarget.getText().toString()));
+                    campaign.setDeadline(endDate);
+                    campaign.setAddress(txtAddress.getText().toString());
+                    campaign.setStory(txtStory.getText().toString());
 
-                campaignViewModel.insert(campaign);
-
-                Intent intent = new Intent(CreateCampaignActivity.this, ListCampaignActivity.class);
-                startActivity(intent);
+                    campaignViewModel.insert(campaign);
+                    Intent intent = new Intent(CreateCampaignActivity.this, ListCampaignActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

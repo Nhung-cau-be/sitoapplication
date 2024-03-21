@@ -15,17 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            app:title="Chiến dịch nổi bật"
             app:menu="@menu/list_campaign_top_app_bar"
-            app:navigationIcon="@drawable/ic_keyboard_arrow_left_24" />
+            app:navigationIcon="@drawable/ic_keyboard_arrow_left_24"
+            app:title="Chiến dịch nổi bật" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
 
     <ListView
         android:id="@+id/lvChienDich"
