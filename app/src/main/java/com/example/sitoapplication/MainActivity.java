@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.sitoapplication.controller.CampaignDetailActivity;
 import com.example.sitoapplication.controller.CreateCampaignActivity;
 import com.example.sitoapplication.controller.ListCampaignActivity;
 
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, ListCampaignActivity.class);
+        Intent intent = new Intent(this, CreateCampaignActivity.class);
         startActivity(intent);
     }
 }

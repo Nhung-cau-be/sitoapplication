@@ -30,6 +30,10 @@
             android:name=".controller.ListCampaignActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".controller.CampaignDetailActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

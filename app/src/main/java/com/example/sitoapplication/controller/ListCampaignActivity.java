@@ -1,5 +1,6 @@
 package com.example.sitoapplication.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -8,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sitoapplication.R;
 import com.example.sitoapplication.controller.adapter.CampaignArrayAdapter;
+import com.example.sitoapplication.entity.Campaign;
 import com.example.sitoapplication.model.CampaignViewModel;
 
 public class ListCampaignActivity extends AppCompatActivity {
@@ -28,5 +30,17 @@ public class ListCampaignActivity extends AppCompatActivity {
             campaignArrayAdapter = new CampaignArrayAdapter(this, R.layout.list_campaign_item, campaigns);
             listViewCampaign.setAdapter(campaignArrayAdapter);
         });
+
+        listViewCampaign.setOnItemClickListener((parent, view, position, id) -> {
+            Campaign selectedCampaign = campaignArrayAdapter.getItem(position);
+            if (selectedCampaign != null) {
+                long campaignId = (selectedCampaign.getId());
+                Intent intent = new Intent(ListCampaignActivity.this, CampaignDetailActivity.class);
+                intent.putExtra("campaign_id", campaignId);
+                startActivity(intent);
+            }
+        });
     }
+
+
 }
