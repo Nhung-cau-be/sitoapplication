@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home_top_app_bar_search"
+        android:contentDescription="@string/content_description_search_campaign"
+        android:icon="@drawable/ic_keyboard_arrow_right_24"
+        android:title="@string/search"
+        app:showAsAction="ifRoom" />
+</menu>
