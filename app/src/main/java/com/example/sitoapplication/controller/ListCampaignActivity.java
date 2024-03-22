@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sitoapplication.R;
+import com.example.sitoapplication.database.entity.Campaign;
 import com.example.sitoapplication.adapter.CampaignArrayAdapter;
 import com.example.sitoapplication.model.CampaignViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
@@ -34,6 +35,16 @@ public class ListCampaignActivity extends AppCompatActivity {
             listViewCampaign.setAdapter(campaignArrayAdapter);
         });
 
+        listViewCampaign.setOnItemClickListener((parent, view, position, id) -> {
+            Campaign selectedCampaign = campaignArrayAdapter.getItem(position);
+            if (selectedCampaign != null) {
+                long campaignId = (selectedCampaign.getId());
+                Intent intent = new Intent(ListCampaignActivity.this, CampaignDetailActivity.class);
+                intent.putExtra("campaign_id", campaignId);
+                startActivity(intent);
+            }
+        });
+
         topAppBar.setOnMenuItemClickListener(item -> {
             if(item.getItemId() == R.id.lctab_create_campaign) {
                 Intent intent = new Intent(ListCampaignActivity.this, CreateCampaignActivity.class);
@@ -45,4 +56,6 @@ public class ListCampaignActivity extends AppCompatActivity {
             return false;
         });
     }
+
+
 }

@@ -15,13 +15,21 @@ public class CampaignViewModel extends AndroidViewModel {
 
     private final LiveData<List<Campaign>> mAllCampaigns;
 
-    public CampaignViewModel (Application application) {
+    public CampaignViewModel(Application application) {
         super(application);
         mRepository = new CampaignRepository(application);
         mAllCampaigns = mRepository.getAll();
     }
 
-    public LiveData<List<Campaign>> getAll() { return mAllCampaigns; }
+    public LiveData<List<Campaign>> getAll() {
+        return mAllCampaigns;
+    }
 
-    public void insert(Campaign campaign) { mRepository.insert(campaign); }
+    public void insert(Campaign campaign) {
+        mRepository.insert(campaign);
+    }
+
+    public LiveData<Campaign> getById(String campaignId) {
+        return mRepository.getByCampaignId(campaignId);
+    }
 }

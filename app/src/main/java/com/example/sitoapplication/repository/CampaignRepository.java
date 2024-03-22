@@ -24,9 +24,15 @@ public class CampaignRepository {
         return mAllCampaigns;
     }
 
+    public LiveData<Campaign> getByCampaignId(String campaignId) {
+        return mCampaignDao.getByCampaignId(campaignId);
+    }
+
+
     public void insert(Campaign campaign) {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             mCampaignDao.insert(campaign);
         });
     }
+
 }

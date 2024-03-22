@@ -18,6 +18,9 @@ public interface CampaignDao {
     @Query("SELECT * FROM Campaign c WHERE c.id = :id")
     Campaign getById(String id);
 
+    @Query("SELECT * FROM Campaign c WHERE c.id = :campaignId")
+    LiveData<Campaign> getByCampaignId (String campaignId);
+
     @Insert (onConflict = OnConflictStrategy.IGNORE)
     void insert(Campaign campaign);
 }

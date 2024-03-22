@@ -57,7 +57,7 @@ public class CampaignArrayAdapter extends ArrayAdapter<Campaign> {
 
         LocalDateTime deadlineLocalDate = campaign.getDeadline().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
         LocalDateTime todayLocalDate =  new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-        viewHolder.txtRemainDays.setText("Còn " + Duration.between(deadlineLocalDate, todayLocalDate).toDays() + " ngày");
+        viewHolder.txtRemainDays.setText("Còn " + Duration.between(todayLocalDate, deadlineLocalDate).toDays() + " ngày");
 
         return convertView;
     }

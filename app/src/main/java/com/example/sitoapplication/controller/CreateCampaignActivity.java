@@ -98,6 +98,7 @@ public class CreateCampaignActivity extends AppCompatActivity {
 
                         campaignViewModel.insert(campaign);
                         Intent intent = new Intent(CreateCampaignActivity.this, ListCampaignActivity.class);
+                        intent.putExtra("campaign_id", campaign.getId());
                         startActivity(intent);
                     }
                 } catch (Exception ex) {
