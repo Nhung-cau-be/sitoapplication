@@ -69,18 +69,20 @@ public class CreateCampaignActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     if(validCampaign()) {
-                        createCampaign(
+                        Campaign campaign = createCampaign(
                                 txtName.getText().toString(),
                                 Long.parseLong(txtTarget.getText().toString()),
                                 new SimpleDateFormat("dd/MM/yyyy").parse(txtDeadline.getText().toString()),
                                 txtAddress.getText().toString(),
                                 txtStory.getText().toString());
 
-                        Intent intent = new Intent(getApplicationContext(), ListCampaignActivity.class);
+                        Intent intent = new Intent(CreateCampaignActivity.this, ListCampaignActivity.class);
+                        intent.putExtra("campaign_id", campaign.getId());
                         startActivity(intent);
                     }
                 } catch (Exception ex) {
                     Log.e("CreateCampaignActivity", ex.getMessage());
+                    Toast.makeText(getApplicationContext(), "Tạo chiến dịch thất bại",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -145,7 +147,7 @@ public class CreateCampaignActivity extends AppCompatActivity {
         }
     }
 
-    private void createCampaign(String name, Long target, Date deadline, String address, String story) {
+    private Campaign createCampaign(String name, Long target, Date deadline, String address, String story) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference ref = db.collection("campaign").document();
         String id = ref.getId();
@@ -154,5 +156,7 @@ public class CreateCampaignActivity extends AppCompatActivity {
         ref.set(campaign);
 
         Toast.makeText(getApplicationContext(), "Tạo chiến dịch thành công",Toast.LENGTH_SHORT).show();
+
+        return campaign;
     }
 }

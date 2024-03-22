@@ -22,10 +22,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -65,8 +61,7 @@ public class CampaignArrayAdapter extends ArrayAdapter<Campaign> {
         viewHolder.txtnameChienDich.setText(campaign.getName());
 
         viewHolder.txtRemainDays.setText("Còn " + DateSupport.getInstance().getRemainDays(new Date(), campaign.getDeadline()) + " ngày");
-
-
+        
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("user").document(campaign.getCreatedUserId());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

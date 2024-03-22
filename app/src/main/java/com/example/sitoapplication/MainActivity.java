@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.sitoapplication.controller.CampaignDetailActivity;
+import com.example.sitoapplication.controller.CreateCampaignActivity;
 import com.example.sitoapplication.controller.HomeActivity;
 import com.example.sitoapplication.controller.InformationActivity;
 import com.example.sitoapplication.controller.ListCampaignActivity;
