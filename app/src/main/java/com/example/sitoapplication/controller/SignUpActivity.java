@@ -92,8 +92,8 @@ public class SignUpActivity extends AppCompatActivity {
                         FirebaseFirestore db = FirebaseFirestore.getInstance();
                         db.collection("user").document(uid).set(user);
 
-                        Intent intent = new Intent(SignUpActivity.this,SignInActivity.class);
-                        startActivity(intent);
+                        Toast.makeText(getApplicationContext(), "Đăng ký thành công",Toast.LENGTH_SHORT).show();
+                        finish();
                     } else {
                         Toast.makeText(getApplicationContext(), "Đăng ký thất bại",Toast.LENGTH_SHORT).show();
                     }

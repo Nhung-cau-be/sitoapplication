@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.sitoapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +24,7 @@ public class SignInActivity extends AppCompatActivity {
     private Button btnSignIn;
     private TextView txtCreateAccount;
     private FirebaseAuth mAuth;
+    private MaterialToolbar topAppBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class SignInActivity extends AppCompatActivity {
         txtPassword = findViewById(R.id.txtPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
         txtCreateAccount = findViewById(R.id.txtCreateAccount);
+        topAppBar = findViewById(R.id.sign_in_top_app_bar);
 
         mAuth = FirebaseAuth.getInstance();
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +50,13 @@ public class SignInActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SignInActivity.this,SignUpActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        topAppBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -68,7 +78,7 @@ public class SignInActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Đăng nhập thành công",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SignInActivity.this,ListCampaignActivity.class);
+                    Intent intent = new Intent(SignInActivity.this, InformationActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Đăng nhập thất bại",Toast.LENGTH_SHORT).show();

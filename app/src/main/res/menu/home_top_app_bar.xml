@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home_top_app_bar_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search"
+        android:contentDescription="@string/content_description_search_campaign"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/home_top_app_bar_user"
+        android:icon="@drawable/ic_account_circle"
+        android:title="Người dùng"
+        android:contentDescription="Quản lý người dùng"
+        app:showAsAction="ifRoom" />
+</menu>

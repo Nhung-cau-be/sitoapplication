@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sito Application</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="content_description_search_campaign">Tìm kiếm chiến dịch</string>
 </resources>
