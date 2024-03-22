@@ -10,10 +10,16 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sitoapplication.R;
 import com.example.sitoapplication.model.CampaignViewModel;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Locale;
 
 public class CampaignDetailActivity extends AppCompatActivity {
@@ -42,8 +48,8 @@ public class CampaignDetailActivity extends AppCompatActivity {
         campaignViewModel.getById(campaignId).observe(this, campaign -> {
             if (campaign != null) {
                 txtName.setText(campaign.getName());
-               txtTarget.setText(AsCurrency((campaign.getTarget())));
-               // txtDeadline.setText(Math.toIntExact(campaign.getDeadline()));
+                txtTarget.setText(AsCurrency((campaign.getTarget())));
+                txtDeadline.setText(getRemainDays(campaign.getDeadline()) + "");
                 txtAddress.setText(campaign.getAddress());
                 txtStory.setText(campaign.getStory());
             } else {
@@ -52,12 +58,17 @@ public class CampaignDetailActivity extends AppCompatActivity {
         });
     }
 
-    public String AsCurrency( long value)
-    {
+    public String AsCurrency( long value) {
         DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.getDefault());
         DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
         symbols.setGroupingSeparator('.');
         formatter.setDecimalFormatSymbols(symbols);
         return formatter.format(value) + " VNĐ";
+    }
+
+    private long getRemainDays (Date date) {
+        LocalDateTime deadlineLocalDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        LocalDateTime todayLocalDate =  new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        return Duration.between(todayLocalDate, deadlineLocalDate).toDays();
     }
 }

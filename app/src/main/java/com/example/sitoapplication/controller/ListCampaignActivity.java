@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sitoapplication.R;
-import com.example.sitoapplication.entity.Campaign;
+import com.example.sitoapplication.database.entity.Campaign;
 import com.example.sitoapplication.adapter.CampaignArrayAdapter;
 import com.example.sitoapplication.model.CampaignViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
