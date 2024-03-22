@@ -43,6 +43,14 @@
             android:name=".controller.InformationActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".controller.HomeActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".controller.UserActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

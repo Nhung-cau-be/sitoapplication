@@ -32,7 +32,6 @@ public class CreateCampaignActivity extends AppCompatActivity {
     TextView txtStory;
     Button btnCreate;
     MaterialDatePicker<Long> datePicker;
-    long endDate = 0;
 
     @SuppressLint("SimpleDateFormat")
     @Override

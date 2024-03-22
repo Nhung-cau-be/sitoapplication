@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bnm_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="Trang chủ"/>
+    <item
+        android:id="@+id/bnm_map"
+        android:enabled="true"
+        android:icon="@drawable/ic_map"
+        android:title="Bản đồ"/>
+    <item
+        android:id="@+id/bnm_notifications"
+        android:enabled="true"
+        android:icon="@drawable/ic_notifications"
+        android:title="Thông báo"/>
+    <item
+        android:id="@+id/bnm_user"
+        android:enabled="true"
+        android:icon="@drawable/ic_account_circle"
+        android:title="Cá nhân"/>
+</menu>
