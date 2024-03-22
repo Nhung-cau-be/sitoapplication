@@ -3,6 +3,7 @@ package com.example.sitoapplication.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class HomeActivity extends AppCompatActivity {
     private MaterialToolbar topAppBar;
     private BottomNavigationView bottomNavigationView;
+    private TextView txtOutstandingCampaign;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
 
         topAppBar = findViewById(R.id.home_top_app_bar);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        txtOutstandingCampaign = findViewById(R.id.txtOutstandingCampaign);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser != null) {
@@ -50,6 +53,14 @@ public class HomeActivity extends AppCompatActivity {
             }
 
             return false;
+        });
+        txtOutstandingCampaign.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ListCampaignActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }
