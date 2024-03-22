@@ -66,7 +66,9 @@
                 android:layout_height="150px"
                 android:paddingStart="50px"
                 android:textSize="40px"
-                android:lines="1"/>
+                android:lines="1"
+                android:inputType="number"
+                app:suffixText="VNĐ"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 

@@ -70,7 +70,7 @@
                     android:textSize="12dp" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/txtCreatedUserListCampaignItem"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

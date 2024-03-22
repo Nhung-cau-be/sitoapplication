@@ -1,6 +1,7 @@
 package com.example.sitoapplication.adapter;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.sitoapplication.R;
-import com.example.sitoapplication.database.entity.Campaign;
+import com.example.sitoapplication.common.DateSupport;
+import com.example.sitoapplication.model.Campaign;
+import com.example.sitoapplication.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -46,6 +54,7 @@ public class CampaignArrayAdapter extends ArrayAdapter<Campaign> {
             viewHolder.imgChienDich = convertView.findViewById(R.id.imgChienDich);
             viewHolder.txtnameChienDich = convertView.findViewById(R.id.txtnameChienDich);
             viewHolder.txtRemainDays = convertView.findViewById(R.id.txtRemainDays);
+            viewHolder.txtCreatedUser = convertView.findViewById(R.id.txtCreatedUserListCampaignItem);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -55,10 +64,27 @@ public class CampaignArrayAdapter extends ArrayAdapter<Campaign> {
         viewHolder.imgChienDich.setImageResource(R.drawable.ic_launcher_foreground);
         viewHolder.txtnameChienDich.setText(campaign.getName());
 
-        LocalDateTime deadlineLocalDate = campaign.getDeadline().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-        LocalDateTime todayLocalDate =  new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-        viewHolder.txtRemainDays.setText("Còn " + Duration.between(deadlineLocalDate, todayLocalDate).toDays() + " ngày");
+        viewHolder.txtRemainDays.setText("Còn " + DateSupport.getInstance().getRemainDays(new Date(), campaign.getDeadline()) + " ngày");
 
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference docRef = db.collection("user").document(campaign.getCreatedUserId());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        User createdUser = document.toObject(User.class);
+                        viewHolder.txtCreatedUser.setText(createdUser != null ? createdUser.getName() : "");
+                    } else {
+                        Log.e("TAG", "No such document");
+                    }
+                } else {
+                    Log.e("TAG", "get failed with ", task.getException());
+                }
+            }
+        });
         return convertView;
     }
 
@@ -71,5 +97,6 @@ public class CampaignArrayAdapter extends ArrayAdapter<Campaign> {
         ImageView imgChienDich;
         TextView txtnameChienDich;
         TextView txtRemainDays;
+        TextView txtCreatedUser;
     }
 }
