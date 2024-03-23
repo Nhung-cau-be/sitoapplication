@@ -20,7 +20,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class CampaignDetailActivity extends AppCompatActivity {
-    private CampaignViewModel campaignViewModel;
     TextView txtName;
     TextView txtTarget;
     TextView txtDeadline;
@@ -33,8 +32,6 @@ public class CampaignDetailActivity extends AppCompatActivity {
         setContentView(R.layout.campaign_detail);
         String campaignId = String.valueOf(getIntent().getLongExtra("campaign_id", -1));
 
-        campaignViewModel = new ViewModelProvider(this).get(CampaignViewModel.class);
-
         txtName = findViewById(R.id.txtName);
         txtTarget = findViewById(R.id.txtTarget);
         txtDeadline = findViewById(R.id.txtDeadline);
@@ -42,17 +39,17 @@ public class CampaignDetailActivity extends AppCompatActivity {
         txtStory = findViewById(R.id.txtStory);
 
 
-        campaignViewModel.getById(campaignId).observe(this, campaign -> {
-            if (campaign != null) {
-                txtName.setText(campaign.getName());
-                txtTarget.setText(AsCurrency((campaign.getTarget())));
-                txtDeadline.setText(getRemainDays(campaign.getDeadline()) + "");
-                txtAddress.setText(campaign.getAddress());
-                txtStory.setText(campaign.getStory());
-            } else {
-                Log.d("CampaignDetailActivity", "Không tìm thấy chiến dịch");
-            }
-        });
+//        campaignViewModel.getById(campaignId).observe(this, campaign -> {
+//            if (campaign != null) {
+//                txtName.setText(campaign.getName());
+//                txtTarget.setText(AsCurrency((campaign.getTarget())));
+//                txtDeadline.setText(getRemainDays(campaign.getDeadline()) + "");
+//                txtAddress.setText(campaign.getAddress());
+//                txtStory.setText(campaign.getStory());
+//            } else {
+//                Log.d("CampaignDetailActivity", "Không tìm thấy chiến dịch");
+//            }
+//        });
     }
 
     public String AsCurrency( long value) {

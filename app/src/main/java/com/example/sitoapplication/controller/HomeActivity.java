@@ -40,10 +40,16 @@ public class HomeActivity extends AppCompatActivity {
             return false;
         });
 
-        bottomNavigationView.setSelectedItemId(0);
+        bottomNavigationView.setSelectedItemId(R.id.bnm_home);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.bnm_user) {
                 Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+                return true;
+            }
+            if (item.getItemId() == R.id.bnm_map) {
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
                 startActivity(intent);
                 overridePendingTransition(0,0);
                 return true;
