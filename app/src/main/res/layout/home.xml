@@ -1,33 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent" >
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/home_top_app_bar"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            app:menu="@menu/home_top_app_bar"
-            app:title="Sito application" />
-    </com.google.android.material.appbar.AppBarLayout>
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/home_top_app_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:minHeight="?attr/actionBarSize"
+                    app:menu="@menu/home_top_app_bar"
+                    app:title="Sito application" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="#FFFFFF"
+                    android:padding="10dp"
+                    app:cardCornerRadius="40dp"
+                    tools:ignore="MissingConstraints">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="0"
+                        android:background="#FFFFFF"
+                        android:contentDescription="TODO"
+                        app:srcCompat="@drawable/ic_launcher_background"
+                        tools:ignore="ContentDescription,HardcodedText" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF">
+
+                        <com.google.android.material.appbar.MaterialToolbar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#FFFFFF"
+                            app:title="Tài khoản tích cực"
+                            app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                            app:titleTextColor="#000000" />
+
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                    <TextView
+                        android:id="@+id/txtActiveAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="Xem tất cả"
+                        android:textColor="#FB450C" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="#FFFFFF"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="#FFFFFF"
+                        android:padding="10dp"
+                        app:cardCornerRadius="35dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_weight="0"
+                            android:background="#FFFFFF"
+                            android:contentDescription="TODO"
+                            app:srcCompat="@drawable/ic_launcher_background"
+                            tools:ignore="ContentDescription,HardcodedText" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="#FFFFFF"
+                        android:padding="10dp"
+                        app:cardCornerRadius="40dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_weight="0"
+                            android:background="#FFFFFF"
+                            android:contentDescription="TODO"
+                            app:srcCompat="@drawable/ic_launcher_background"
+                            tools:ignore="ContentDescription,HardcodedText" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="#FFFFFF"
+                        android:padding="10dp"
+                        app:cardCornerRadius="40dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_weight="0"
+                            android:background="#FFFFFF"
+                            android:contentDescription="TODO"
+                            app:srcCompat="@drawable/ic_launcher_background"
+                            tools:ignore="ContentDescription,HardcodedText" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="#FFFFFF"
+                        android:padding="10dp"
+                        app:cardCornerRadius="40dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_weight="0"
+                            android:background="#FFFFFF"
+                            android:contentDescription="TODO"
+                            app:srcCompat="@drawable/ic_launcher_background"
+                            tools:ignore="ContentDescription,HardcodedText" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="28dp"
+                        android:background="#FFFFFF"
+                        android:padding="10dp"
+                        app:cardCornerRadius="40dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_weight="0"
+                            android:background="#FFFFFF"
+                            android:contentDescription="TODO"
+                            app:srcCompat="@drawable/ic_launcher_background"
+                            tools:ignore="ContentDescription,HardcodedText" />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF">
+
+                        <com.google.android.material.appbar.MaterialToolbar
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#FFFFFF"
+                            app:navigationIcon="@drawable/ic_watchlist"
+                            app:title="Chiến dịch gây quỹ nổi bật"
+                            app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                            app:titleTextColor="#000000" />
+
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                    <TextView
+                        android:id="@+id/txtOutstandingCampaign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="Xem tất cả"
+                        android:textColor="#FB450C" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu"
-        app:labelVisibilityMode="labeled"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="bottom"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu" />
+</LinearLayout>

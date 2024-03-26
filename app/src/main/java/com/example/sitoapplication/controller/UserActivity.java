@@ -1,7 +1,9 @@
 package com.example.sitoapplication.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import com.example.sitoapplication.R;
 import com.example.sitoapplication.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class UserActivity extends AppCompatActivity {
     private TextView userNameTextView;
     private BottomNavigationView bottomNavigationView;
+    private MaterialToolbar txtCreateCampaign;
 
 
     @Override
@@ -31,6 +35,7 @@ public class UserActivity extends AppCompatActivity {
 
         userNameTextView = findViewById(R.id.user_layout_name);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        txtCreateCampaign = findViewById(R.id.txtCreateCampaign);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
@@ -59,5 +64,13 @@ public class UserActivity extends AppCompatActivity {
         }
 
         bottomNavigationView.setSelectedItemId(R.id.bnm_user);
+        txtCreateCampaign.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CreateCampaignActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
