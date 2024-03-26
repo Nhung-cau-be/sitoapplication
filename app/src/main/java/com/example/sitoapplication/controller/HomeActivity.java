@@ -35,7 +35,12 @@ public class HomeActivity extends AppCompatActivity {
         }
         topAppBar.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.home_top_app_bar_user) {
-                Intent intent = new Intent(HomeActivity.this, SignInActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
+                startActivity(intent);
+                return true;
+            }
+            if (item.getItemId() == R.id.home_top_app_bar_search) {
+                Intent intent = new Intent(getApplicationContext(), HomeSearchActivity.class);
                 startActivity(intent);
                 return true;
             }

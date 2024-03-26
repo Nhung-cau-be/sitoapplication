@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sitoapplication.R;
 import com.example.sitoapplication.model.Campaign;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +33,8 @@ public class CreateCampaignActivity extends AppCompatActivity {
     TextView txtStory;
     Button btnCreate;
     MaterialDatePicker<Long> datePicker;
+    private MaterialToolbar topAppBar;
+
 
     @SuppressLint("SimpleDateFormat")
     @Override
@@ -50,12 +53,17 @@ public class CreateCampaignActivity extends AppCompatActivity {
         txtAddress = findViewById(R.id.editTextAddress);
         txtStory = findViewById(R.id.editTextStory);
         btnCreate = findViewById(R.id.buttonCreate);
+        topAppBar = findViewById(R.id.create_campaign_top_app_bar);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser == null) {
             Toast.makeText(getApplicationContext(), "Vui lòng đăng nhập",Toast.LENGTH_SHORT).show();
             finish();
         }
+
+        topAppBar.setNavigationOnClickListener(listener -> {
+            finish();
+        });
 
         txtDeadline.setOnFocusChangeListener((v, hasFocus) -> {
             if(hasFocus) {

@@ -88,7 +88,7 @@ public class SignUpActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()) {
                         String uid = task.getResult().getUser().getUid();
-                        User user = new User(name,phoneNumber, dateOfBirth,address);
+                        User user = new User(uid, name, phoneNumber, dateOfBirth, address);
                         FirebaseFirestore db = FirebaseFirestore.getInstance();
                         db.collection("user").document(uid).set(user);
 
