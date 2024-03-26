@@ -31,7 +31,6 @@ public class CampaignDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.campaign_detail);
         String campaignId = String.valueOf(getIntent().getLongExtra("campaign_id", -1));
-
         txtName = findViewById(R.id.txtName);
         txtTarget = findViewById(R.id.txtTarget);
         txtDeadline = findViewById(R.id.txtDeadline);
