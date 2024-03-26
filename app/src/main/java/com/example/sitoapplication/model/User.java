@@ -4,7 +4,8 @@ import java.util.Date;
 import com.google.firebase.Timestamp;
 
 public class User {
-//    public String uid;
+    public String id;
+
     public String name;
     public String phoneNumber;
     public String dateOfBirth;
@@ -13,12 +14,22 @@ public class User {
     public User() {
     }
 
-    public User(String name, String phoneNumber, String dateOfBirth, String address) {
+    public User(String id, String name, String phoneNumber, String dateOfBirth, String address) {
+        this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
         this.address = address;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }

@@ -89,26 +89,4 @@ public class Campaign {
     public void setCreatedUserId(String createdUserId) {
         this.createdUserId = createdUserId;
     }
-
-    private User createdUser = null;
-    public User getCreatedUser() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("user").document(this.createdUserId);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        createdUser = document.toObject(User.class);
-                    } else {
-                        Log.e("TAG", "No such document");
-                    }
-                } else {
-                    Log.e("TAG", "get failed with ", task.getException());
-                }
-            }
-        });
-        return createdUser;
-    }
 }
