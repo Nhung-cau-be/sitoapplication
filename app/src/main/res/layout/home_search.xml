@@ -21,7 +21,7 @@
             app:title="Tìm kiếm">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextName"
+                android:id="@+id/home_search_search_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:hint="Tìm kiếm"
@@ -30,29 +30,28 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/home_search_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_search_tab_layout">
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tài khoản"
-            />
+            android:text="Tài khoản" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chiến dịch"
-            />
+            android:text="Chiến dịch" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/home_search_paper"
+        android:id="@+id/home_search_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/home_search_tab_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

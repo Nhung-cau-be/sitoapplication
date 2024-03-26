@@ -7,6 +7,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.sitoapplication.controller.fragment.HomeSearchCampaignFragment;
+import com.example.sitoapplication.controller.fragment.HomeSearchUserFragment;
+
 import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
@@ -16,6 +19,8 @@ public class HomeSearchViewPaperAdapter extends FragmentStateAdapter {
 
     public HomeSearchViewPaperAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
+        fragments.add(new HomeSearchUserFragment());
+        fragments.add(new HomeSearchCampaignFragment());
     }
 
     @NonNull
@@ -27,9 +32,5 @@ public class HomeSearchViewPaperAdapter extends FragmentStateAdapter {
     @Override
     public int getItemCount() {
         return fragments.size();
-    }
-
-    public void addFragment(Fragment fragment) {
-        fragments.add(fragment);
     }
 }
