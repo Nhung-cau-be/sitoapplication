@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.sitoapplication.R;
 import com.example.sitoapplication.adapter.HomeSearchViewPaperAdapter;
 import com.example.sitoapplication.model.HomeSearchViewModel;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.android.material.textfield.TextInputEditText;
@@ -25,6 +26,7 @@ public class HomeSearchActivity extends AppCompatActivity {
     private HomeSearchViewPaperAdapter homeSearchViewPaperAdapter;
     private HomeSearchViewModel homeSearchViewModel;
     private TextInputEditText txtSearch;
+    private MaterialToolbar topAppBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class HomeSearchActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.home_search_tab_layout);
         viewPager = findViewById(R.id.home_search_pager);
         txtSearch = findViewById(R.id.home_search_search_edittext);
+        topAppBar = findViewById(R.id.home_search_top_app_bar);
 
         homeSearchViewPaperAdapter = new HomeSearchViewPaperAdapter(this);
         viewPager.setAdapter(homeSearchViewPaperAdapter);
@@ -61,6 +64,13 @@ public class HomeSearchActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 homeSearchViewModel.setSearchString(s.toString());
+            }
+        });
+
+        topAppBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
