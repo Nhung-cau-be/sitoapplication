@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sitoapplication.R;
+import com.example.sitoapplication.model.Address;
 import com.example.sitoapplication.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -88,7 +89,7 @@ public class SignUpActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()) {
                         String uid = task.getResult().getUser().getUid();
-                        User user = new User(uid, name, phoneNumber, dateOfBirth, address);
+                        User user = new User(uid, name, phoneNumber, dateOfBirth, new Address());
                         FirebaseFirestore db = FirebaseFirestore.getInstance();
                         db.collection("user").document(uid).set(user);
 

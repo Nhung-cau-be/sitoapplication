@@ -9,12 +9,12 @@ public class User {
     public String name;
     public String phoneNumber;
     public String dateOfBirth;
-    public String address;
+    public Address address;
 
     public User() {
     }
 
-    public User(String id, String name, String phoneNumber, String dateOfBirth, String address) {
+    public User(String id, String name, String phoneNumber, String dateOfBirth, Address address) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -54,19 +54,11 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
-//    public void setDateOfBirth(Timestamp timestamp) {
-//        this.dateOfBirth = timestamp.toDate();
-//    }
-//
-//    // Chuyển đổi java.util.Date thành Timestamp
-//    public Timestamp dateToTimestamp() {
-//        return new Timestamp(dateOfBirth);
-//    }
 }

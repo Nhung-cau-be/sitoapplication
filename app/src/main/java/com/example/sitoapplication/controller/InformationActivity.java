@@ -47,7 +47,7 @@ public class InformationActivity extends AppCompatActivity {
                             edtName.setText(currentUser.getName());
                             edtPhoneNumber.setText(currentUser.getPhoneNumber());
                             edtDateOfBirth.setText((CharSequence) currentUser.getDateOfBirth());
-                            edtAddress.setText(currentUser.getAddress());
+                            edtAddress.setText(currentUser.getAddress().displayAddress());
                         } else {
                             Log.e("TAG", "No such document");
                         }
