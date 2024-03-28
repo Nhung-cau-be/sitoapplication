@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#FFFFFF">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200px"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:cardCornerRadius="50dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_gravity="center"
+                app:cardCornerRadius="50dp">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -34,21 +40,390 @@
                 android:id="@+id/user_layout_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="8dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:text="TextView" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:paddingBottom="76dp">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtUserProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_user"
+                        app:title="Trang các nhân"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtEditUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_edituser"
+                        app:title="Chỉnh sửa thông tin cá nhân"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtSetUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_setuser"
+                        app:title="Cài đặt tài khoản"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtCreateCampaign"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_create_campaign"
+                        app:title="Tạo chiến dịch"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtListSituation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_list_situation"
+                        app:title="Danh sách hoàn cảnh"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtMySupport"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_my_support"
+                        app:title="Ủng hộ của tôi"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtCompanionCampaign"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_many_people"
+                        app:title="Chiến dịch đồng hành"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtSavedActivity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_saved_activity"
+                        app:title="Hoạt động đã lưu"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtExploreEvents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_search_events"
+                        app:title="Khám phá sự kiện"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtWatchlist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_watchlist"
+                        app:title="Danh sách theo dỗi"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtBlockList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_blocklist"
+                        app:title="Danh sách chặn"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtApplication"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_app"
+                        app:title="Ứng dụng"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtHelp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_help"
+                        app:title="Trợ giúp"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtTermsUse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_terms_use"
+                        app:title="Điều khoản sử dụng"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/txtSecurity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        app:menu="@menu/user_icon_end"
+                        app:navigationIcon="@drawable/ic_sercurity"
+                        app:title="Chính sách bảo mật"
+                        app:titleTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:titleTextColor="#606060" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    app:dividerInsetEnd="16dp"
+                    app:dividerInsetStart="16dp" />
+
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu"
-        app:labelVisibilityMode="labeled"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</LinearLayout>
