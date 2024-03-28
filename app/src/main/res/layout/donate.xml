@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="575px"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/campaign" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-80px"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8F3ED"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40px"
+            android:layout_marginTop="80px"
+            android:layout_marginEnd="50px"
+            android:layout_marginBottom="60px"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15px"
+                android:layout_marginBottom="45px"
+                android:text="Thông tin ủng hộ"
+                android:textColor="#33322E"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15px"
+                android:layout_marginTop="10px"
+                android:text="Nhập số tiền ủng hộ"
+                android:textColor="#918D8A"
+                android:textSize="16sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20px"
+                android:layout_marginTop="20px"
+                android:textColorHint="#F1815D">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextDonate"
+                        android:layout_width="800px"
+                        android:layout_height="170px"
+                        android:background="#FFFFFF"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:lines="1"
+                        android:paddingStart="50px"
+                        android:textColor="#FB4500"
+                        android:textColorHint="#FB4500"
+                        android:textSize="20sp"
+                        app:suffixText="VNĐ" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|end"
+                        android:layout_weight="1"
+                        android:gravity="center|end"
+                        android:text="VND"
+                        android:textAlignment="center"
+                        android:textColor="#918D8A"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20px"
+                android:layout_marginTop="30px"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="200px"
+                        android:layout_height="130px"
+                        android:layout_marginRight="15px"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FFFFFF"
+                        android:onClick="onButtonClick"
+                        android:text="5.000"
+                        android:textColor="#4D4D4D"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:cornerRadius="32px" />
+
+                    <Button
+                        android:id="@+id/button10"
+                        android:layout_width="200px"
+                        android:layout_height="130px"
+                        android:layout_marginRight="15px"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FFFFFF"
+                        android:onClick="onButtonClick"
+                        android:text="10.000"
+                        android:textColor="#4D4D4D"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:cornerRadius="32px" />
+
+                    <Button
+                        android:id="@+id/button50"
+                        android:layout_width="200px"
+                        android:layout_height="130px"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FFFFFF"
+                        android:onClick="onButtonClick"
+                        android:text="50.000"
+                        android:textColor="#4D4D4D"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:cornerRadius="35px" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button100"
+                        android:layout_width="200px"
+                        android:layout_height="130px"
+                        android:layout_marginRight="15px"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FFFFFF"
+                        android:onClick="onButtonClick"
+                        android:text="100.000"
+                        android:textColor="#4D4D4D"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:cornerRadius="32px" />
+
+                    <Button
+                        android:id="@+id/button200"
+                        android:layout_width="200px"
+                        android:layout_height="130px"
+                        android:layout_marginRight="15px"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FFFFFF"
+                        android:onClick="onButtonClick"
+                        android:text="200.000"
+                        android:textColor="#4D4D4D"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:cornerRadius="32px" />
+
+                    <Button
+                        android:id="@+id/button500"
+                        android:layout_width="200px"
+                        android:layout_height="130px"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FFFFFF"
+                        android:onClick="onButtonClick"
+                        android:text="500.000"
+                        android:textColor="#4D4D4D"
+                        android:textSize="16sp"
+                        android:textStyle="normal"
+                        app:cornerRadius="32px" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18px"
+                    android:layout_marginTop="70px"
+                    android:text="Lời nhắn"
+                    android:textColor="#979797" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20px"
+                    android:layout_marginTop="10px"
+                    android:hint="Cùng nhau trao gửi những lời yêu thương"
+                    android:textColorHint="#979797"
+                    app:hintTextColor="#979797">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextName"
+                        android:layout_width="match_parent"
+                        android:layout_height="150px"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:lines="1"
+                        android:paddingStart="50px"
+                        android:textSize="40px" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="250px"
+                    android:layout_height="180px"
+                    android:layout_weight="1"
+                    android:buttonTint="#F4A76D" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="180px"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:text="Ẩn thông tin ủng hộ của bạn với mọi người" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="200px"
+            android:background="#FFFFFF"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonDonate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40px"
+                android:layout_marginEnd="40px"
+                android:backgroundTint="#FB8442"
+                android:text="Ủng hộ ngay"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

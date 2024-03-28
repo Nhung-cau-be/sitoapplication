@@ -16,6 +16,14 @@ public class NumberSupport {
         return formatter.format(value) + " VNĐ";
     }
 
+    public String asCurrencyForDonate(long value) {
+        DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.getDefault());
+        DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
+        symbols.setGroupingSeparator('.');
+        formatter.setDecimalFormatSymbols(symbols);
+        return formatter.format(value);
+    }
+
     public static synchronized NumberSupport getInstance()
     {
         if (single_instance == null)

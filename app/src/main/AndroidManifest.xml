@@ -68,7 +68,12 @@
             android:exported="true"></activity>
         <activity
             android:name=".controller.UserActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".controller.DonateActivity"
+            android:exported="true">
+        </activity>
         <activity
             android:name=".controller.UserProfileActivity"
             android:exported="true"></activity>
