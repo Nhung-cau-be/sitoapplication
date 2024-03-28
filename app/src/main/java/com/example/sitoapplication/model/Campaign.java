@@ -20,11 +20,12 @@ public class Campaign {
     private String address;
     private String story;
     private String createdUserId;
+    private String imageUrl;
 
     public Campaign() {
     }
 
-    public Campaign(String id, String name, Long target, Date deadline, String address, String story, String createdUserId) {
+    public Campaign(String id, String name, Long target, Date deadline, String address, String story, String createdUserId, String imageUrl) {
         this.id = id;
         this.name = name;
         this.target = target;
@@ -32,6 +33,7 @@ public class Campaign {
         this.address = address;
         this.story = story;
         this.createdUserId = createdUserId;
+        this.imageUrl = imageUrl;
     }
 
     public String getId() {
@@ -78,6 +80,14 @@ public class Campaign {
         return story;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public void setStory(String story) {
         this.story = story;
     }
@@ -88,27 +98,5 @@ public class Campaign {
 
     public void setCreatedUserId(String createdUserId) {
         this.createdUserId = createdUserId;
-    }
-
-    private User createdUser = null;
-    public User getCreatedUser() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("user").document(this.createdUserId);
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        createdUser = document.toObject(User.class);
-                    } else {
-                        Log.e("TAG", "No such document");
-                    }
-                } else {
-                    Log.e("TAG", "get failed with ", task.getException());
-                }
-            }
-        });
-        return createdUser;
     }
 }

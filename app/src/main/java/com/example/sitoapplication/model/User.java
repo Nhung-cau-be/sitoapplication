@@ -4,7 +4,6 @@ import java.util.Date;
 import com.google.firebase.Timestamp;
 
 public class User {
-//    public String uid;
     public String name;
     public String phoneNumber;
     public String dateOfBirth;
@@ -19,6 +18,7 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.address = address;
     }
+
     public String getName() {
         return name;
     }
