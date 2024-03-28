@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.example.sitoapplication.controller.CampaignDetailActivity;
 import com.example.sitoapplication.controller.CreateCampaignActivity;
+import com.example.sitoapplication.controller.DonateActivity;
 import com.example.sitoapplication.controller.HomeActivity;
 import com.example.sitoapplication.controller.InformationActivity;
 import com.example.sitoapplication.controller.ListCampaignActivity;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, HomeActivity.class);
+        Intent intent = new Intent(this, ListCampaignActivity.class);
         startActivity(intent);
     }
 }

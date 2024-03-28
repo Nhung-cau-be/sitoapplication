@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:showDividers="none"
-    >
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -675,9 +673,26 @@
                         android:layout_marginTop="20px"
                         android:src="@drawable/ic_launcher_background" />
                 </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonDonate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FB8442"
+            android:text="Ủng hộ"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>
