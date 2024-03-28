@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "363687750846",
+    "firebase_url": "https://sito-application-default-rtdb.firebaseio.com",
     "project_id": "sito-application",
     "storage_bucket": "sito-application.appspot.com"
   },

@@ -20,7 +20,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class CampaignDetailActivity extends AppCompatActivity {
-//    private CampaignViewModel campaignViewModel;
     TextView txtName;
     TextView txtTarget;
     TextView txtDeadline;
@@ -32,9 +31,6 @@ public class CampaignDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.campaign_detail);
         String campaignId = String.valueOf(getIntent().getLongExtra("campaign_id", -1));
-
-//        campaignViewModel = new ViewModelProvider(this).get(CampaignViewModel.class);
-
         txtName = findViewById(R.id.txtName);
         txtTarget = findViewById(R.id.txtTarget);
         txtDeadline = findViewById(R.id.txtDeadline);
