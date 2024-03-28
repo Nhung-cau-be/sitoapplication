@@ -1,5 +1,6 @@
 package com.example.sitoapplication.controller;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,8 +27,10 @@ public class UserActivity extends AppCompatActivity {
     private TextView userNameTextView;
     private BottomNavigationView bottomNavigationView;
     private MaterialToolbar txtCreateCampaign;
+    private MaterialToolbar txtUserProfile;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,7 @@ public class UserActivity extends AppCompatActivity {
         userNameTextView = findViewById(R.id.user_layout_name);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         txtCreateCampaign = findViewById(R.id.txtCreateCampaign);
+        txtUserProfile = findViewById(R.id.txtUserProfile);
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
@@ -72,6 +76,7 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+      
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.bnm_home) {
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
@@ -81,6 +86,14 @@ public class UserActivity extends AppCompatActivity {
             }
 
             return false;
+
+        txtUserProfile.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }

@@ -1,24 +1,29 @@
 package com.example.sitoapplication.model;
 
-import java.util.Date;
-import com.google.firebase.Timestamp;
-
 public class User {
-//    public String uid;
-    public String name;
-    public String phoneNumber;
-    public String dateOfBirth;
-    public String address;
+    private String id;
+    private String name;
+    private String phoneNumber;
+    private String dateOfBirth;
 
     public User() {
     }
 
-    public User(String name, String phoneNumber, String dateOfBirth, String address) {
+    public User(String id, String name, String phoneNumber, String dateOfBirth) {
+        this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
-        this.address = address;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -42,20 +47,4 @@ public class User {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-//    public void setDateOfBirth(Timestamp timestamp) {
-//        this.dateOfBirth = timestamp.toDate();
-//    }
-//
-//    // Chuyển đổi java.util.Date thành Timestamp
-//    public Timestamp dateToTimestamp() {
-//        return new Timestamp(dateOfBirth);
-//    }
 }
