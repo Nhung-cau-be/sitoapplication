@@ -5,23 +5,17 @@ import java.util.List;
 
 public class Address {
     private String street;
-    private String wardCode;
     private String wardName;
-    private String districtCode;
     private String districtName;
-    private String provinceCode;
     private String provinceName;
 
     public Address() {
     }
 
-    public Address(String street, String wardCode, String wardName, String districtCode, String districtName, String provinceCode, String provinceName) {
+    public Address(String street, String wardName, String districtName, String provinceName) {
         this.street = street;
-        this.wardCode = wardCode;
         this.wardName = wardName;
-        this.districtCode = districtCode;
         this.districtName = districtName;
-        this.provinceCode = provinceCode;
         this.provinceName = provinceName;
     }
 
@@ -33,14 +27,6 @@ public class Address {
         this.street = street;
     }
 
-    public String getWardCode() {
-        return wardCode;
-    }
-
-    public void setWardCode(String wardCode) {
-        this.wardCode = wardCode;
-    }
-
     public String getWardName() {
         return wardName;
     }
@@ -49,28 +35,12 @@ public class Address {
         this.wardName = wardName;
     }
 
-    public String getDistrictCode() {
-        return districtCode;
-    }
-
-    public void setDistrictCode(String districtCode) {
-        this.districtCode = districtCode;
-    }
-
     public String getDistrictName() {
         return districtName;
     }
 
     public void setDistrictName(String districtName) {
         this.districtName = districtName;
-    }
-
-    public String getProvinceCode() {
-        return provinceCode;
-    }
-
-    public void setProvinceCode(String provinceCode) {
-        this.provinceCode = provinceCode;
     }
 
     public String getProvinceName() {

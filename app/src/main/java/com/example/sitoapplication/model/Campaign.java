@@ -17,7 +17,7 @@ public class Campaign {
     private String name;
     private Long target;
     private Date deadline;
-    private String address;
+    private Address address;
     private String story;
     private String createdUserId;
     private String imageUrl;
@@ -25,7 +25,7 @@ public class Campaign {
     public Campaign() {
     }
 
-    public Campaign(String id, String name, Long target, Date deadline, String address, String story, String createdUserId, String imageUrl) {
+    public Campaign(String id, String name, Long target, Date deadline, Address address, String story, String createdUserId, String imageUrl) {
         this.id = id;
         this.name = name;
         this.target = target;
@@ -68,11 +68,11 @@ public class Campaign {
         this.deadline = deadline;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

@@ -62,7 +62,7 @@ public class CampaignDetailActivity extends AppCompatActivity {
                         txtName.setText(campaign != null ? campaign.getName() : "");
                         txtTarget.setText(NumberSupport.getInstance().asCurrency(campaign != null ? campaign.getTarget() : 0));
                         txtDeadline.setText(DateSupport.getInstance().getRemainDays(new Date(), campaign.getDeadline()) + "ngày");
-                        txtAddress.setText(campaign != null ? campaign.getAddress() : "");
+                        txtAddress.setText(campaign != null ? campaign.getAddress().displayAddress() : "");
                         txtStory.setText(campaign != null ? campaign.getStory() : "");
 
                         String createdUserId = campaign.getCreatedUserId();
