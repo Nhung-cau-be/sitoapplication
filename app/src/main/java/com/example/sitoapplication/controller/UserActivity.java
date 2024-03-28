@@ -76,6 +76,16 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+      
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.bnm_home) {
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0,0);
+                return true;
+            }
+
+            return false;
 
         txtUserProfile.setOnClickListener(new View.OnClickListener() {
 

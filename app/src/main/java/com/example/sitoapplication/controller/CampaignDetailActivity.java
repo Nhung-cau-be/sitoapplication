@@ -1,13 +1,15 @@
 package com.example.sitoapplication.controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sitoapplication.R;
 import com.example.sitoapplication.common.DateSupport;
@@ -20,14 +22,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Date;
-import java.util.Locale;
 
 public class CampaignDetailActivity extends AppCompatActivity {
     TextView txtName;
@@ -36,6 +31,7 @@ public class CampaignDetailActivity extends AppCompatActivity {
     TextView txtAddress;
     TextView txtStory;
     TextView txtCreator;
+    Button btnDonate;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,6 +45,7 @@ public class CampaignDetailActivity extends AppCompatActivity {
         txtAddress = findViewById(R.id.txtAddress);
         txtStory = findViewById(R.id.txtStory);
         txtCreator = findViewById(R.id.txtCreator);
+        btnDonate = findViewById(R.id.buttonDonate);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("campaign").document(campaignId);
@@ -87,5 +84,15 @@ public class CampaignDetailActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnDonate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CampaignDetailActivity.this, DonateActivity.class);
+                intent.putExtra("campaign_id", campaignId);
+                startActivity(intent);
+            }
+        });
+
     }
 }
