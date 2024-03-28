@@ -43,11 +43,9 @@ public class InformationActivity extends AppCompatActivity {
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
                             User currentUser = document.toObject(User.class);
-//                            edtUid.setText(currentUser.getUid());
                             edtName.setText(currentUser.getName());
                             edtPhoneNumber.setText(currentUser.getPhoneNumber());
                             edtDateOfBirth.setText((CharSequence) currentUser.getDateOfBirth());
-                            edtAddress.setText(currentUser.getAddress().displayAddress());
                         } else {
                             Log.e("TAG", "No such document");
                         }
