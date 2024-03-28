@@ -43,6 +43,7 @@ public class InformationActivity extends AppCompatActivity {
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
                             User currentUser = document.toObject(User.class);
+
                             edtName.setText(currentUser.getName());
                             edtPhoneNumber.setText(currentUser.getPhoneNumber());
                             edtDateOfBirth.setText((CharSequence) currentUser.getDateOfBirth());

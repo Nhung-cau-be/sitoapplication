@@ -70,8 +70,11 @@
             android:name=".controller.UserActivity"
             android:exported="true"></activity>
         <activity
+            android:name=".controller.UserProfileActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".controller.HomeSearchActivity"
-            android:exported="true"/>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

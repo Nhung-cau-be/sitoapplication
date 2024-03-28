@@ -20,11 +20,12 @@ public class Campaign {
     private String address;
     private String story;
     private String createdUserId;
+    private String imageUrl;
 
     public Campaign() {
     }
 
-    public Campaign(String id, String name, Long target, Date deadline, String address, String story, String createdUserId) {
+    public Campaign(String id, String name, Long target, Date deadline, String address, String story, String createdUserId, String imageUrl) {
         this.id = id;
         this.name = name;
         this.target = target;
@@ -32,6 +33,7 @@ public class Campaign {
         this.address = address;
         this.story = story;
         this.createdUserId = createdUserId;
+        this.imageUrl = imageUrl;
     }
 
     public String getId() {
@@ -76,6 +78,14 @@ public class Campaign {
 
     public String getStory() {
         return story;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public void setStory(String story) {
