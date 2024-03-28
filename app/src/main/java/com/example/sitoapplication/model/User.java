@@ -1,10 +1,10 @@
 package com.example.sitoapplication.model;
 
 public class User {
-
-    public String name;
-    public String phoneNumber;
-    public String dateOfBirth;
+    private String id;
+    private String name;
+    private String phoneNumber;
+    private String dateOfBirth;
 
     public User() {
     }
@@ -15,7 +15,15 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
     }
-  
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
